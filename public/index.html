@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Farma Ahorra</title>
+</head>
+<body>
+    <main id="app">
+        <header>
+            <!-- Reemplazamos el <h1> con la imagen del logo -->
+                <img src="images/logo-bascula.jpg" alt="Logo de Farma Ahorra" class="header-logo">
+        </header>
+        <form id="searchForm">
+            <label for="queryInput" class="visually-hidden">Escribe el nombre de tu medicamento</label>
+            <input type="text" id="queryInput" placeholder="Escribe el nombre de tu medicamento" aria-describedby="queryHint">
+            <button type="submit" id="queryButton">Buscar</button>
+        </form>
+        <section id="results" aria-live="polite"></section>
+    </main>
+
+    <!-- Load jQuery with a fallback -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="jquery-3.6.0.min.js"><\/script>');
+    </script>
+
+    <!-- Load Slick Carousel with a fallback -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        if (typeof jQuery.fn.slick === 'undefined') {
+            document.write('<script src="slick.min.js"><\/script>');
+        }
+    </script>
+
+    <!-- Load your script -->
+    <script src="script.js"></script>
+</body>
+</html>

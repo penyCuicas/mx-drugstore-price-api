@@ -1,0 +1,167 @@
+/* Estilo base para móviles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    font-size: 16px; /* Tamaño base legible */
+    line-height: 1.5;
+}
+
+#app {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-logo {
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo del logo en móviles */
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+/* Estilo del formulario */
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Botón ocupa todo el ancho en móviles */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.store-carousel {
+    margin: 20px 0;
+}
+
+.store-carousel h2 {
+    font-size: 1.25rem; /* 20px */
+    margin-bottom: 10px;
+}
+
+.product {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.product a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para Slick Carousel */
+.carousel {
+    margin: 0 -5px; /* Compensar el margen de los productos */
+}
+
+.slick-slide {
+    padding: 0 5px; /* Espaciado entre los slides */
+}
+
+/* Ajustes para accesibilidad */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Media Queries para pantallas más grandes */
+@media (min-width: 768px) {
+    #app {
+        max-width: 720px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-logo {
+        max-width: 400px; /* Aumenta el tamaño del logo en pantallas más grandes */
+        max-height: 200px;
+    }
+
+    #searchForm {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    button {
+        width: auto; /* Botón solo ocupa el espacio necesario */
+        padding: 12px 20px;
+    }
+
+    .store-carousel h2 {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    .product {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #app {
+        max-width: 800px;
+    }
+
+    .header-logo {
+        max-width: 450px; /* Tamaño aún mayor para pantallas grandes */
+        height: 200px;
+    }
+}
