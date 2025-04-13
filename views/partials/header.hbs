@@ -1,0 +1,18 @@
+<div class="container">
+    <nav>
+    <div class="nav-links">
+        {{#if loggedIn}}
+        <form method="post" action="/auth/logout">
+            <button class="btn btn-link">Cerrar Sesión</button>
+        </form>
+        <span id="sessionStatus">
+            <a href="/account" class="btn btn-link"> {{user.username}}</a>
+            Bienvenido
+        </span>
+        {{else}}
+        <a href="/login" class="">Iniciar Sesión</a>
+        {{/if}}
+    </div>
+    </nav>
+</div>
+

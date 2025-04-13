@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farma Ahorra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  {{> header}}
+  <div class="container">
+    <main id="app">
+        {{{body}}}
+    </main>
+  </div>
+  {{> footer}}
+
+
+  <!-- WhatsApp Chat Button -->
+  <a href="{{whatsappUrl}}" 
+     class="whatsapp-btn btn btn-success rounded-circle d-flex align-items-center justify-content-center" 
+     target="_blank" 
+     aria-label="Chatear por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.134.559 4.135 1.535 5.87L0 24l6.346-1.672A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.286c-1.883 0-3.642-.494-5.168-1.354l-.373-.22-3.775.994 1.008-3.672-.238-.378A10.25 10.25 0 011.714 12c0-5.648 4.589-10.286 10.286-10.286S22.286 6.352 22.286 12 17.697 22.286 12 22.286zm5.602-6.403c-.305-.153-1.816-.897-2.098-1.001-.282-.103-.487-.153-.693.153-.205.306-.795 1.001-.974 1.205-.18.204-.36.23-.665.077-.305-.153-1.29-.475-2.457-1.515-1.008-.897-1.69-2.006-1.89-2.312-.2-.306-.02-.471.15-.624.153-.137.305-.36.458-.612.153-.255.205-.51.102-.714-.102-.204-.918-2.209-1.258-3.027-.34-.818-.688-.714-.974-.714-.255 0-.562 0-.867.051-.305.051-.714.255-1.103.612-.39.357-.795 1.103-.795 2.567 0 1.464.918 2.873 1.103 3.078.184.204 1.89 3.027 4.575 4.25 1.69.765 2.873.816 3.86.612.988-.204 1.816-.897 2.098-1.767.282-.867.282-1.614.205-1.767-.077-.153-.282-.255-.587-.408z"/>
+    </svg>
+  </a>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery with a fallback -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="jquery-3.6.0.min.js"><\/script>');
+    </script>
+
+    <!-- Load Slick Carousel with a fallback -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        if (typeof jQuery.fn.slick === 'undefined') {
+            document.write('<script src="slick.min.js"><\/script>');
+        }
+    </script>
+
+    <!-- Load your script -->
+    <script src="script.js"></script>
+
+</body>
+</html>

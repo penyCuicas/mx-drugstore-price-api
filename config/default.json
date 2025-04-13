@@ -1,0 +1,12 @@
+{
+	"preferences": {
+		"hoursOfFreePremiumAccount": 24,
+		"whatsappUrl": "https://api.whatsapp.com/send?phone=5218116603799&text=Hola%20tengo%20una%20duda%20acerca%20del%20producto",
+		"stripe": {
+			"price_id": "price_1RDABIGD1qOjqHOECtuBfeVQ",
+			"plan_name": "Premium",
+			"success_url": "http://localhost:3000/account?success=true",
+			"cancel_url": "http://localhost:3000/account?canceled=true"
+		}
+	}
+}

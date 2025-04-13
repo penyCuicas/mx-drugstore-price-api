@@ -1,0 +1,47 @@
+<div class="container mt-3">
+  <h1>Mi Cuenta</h1>
+  <p><strong>Email:</strong> {{user.email}}</p>
+  <p><strong>Nombre:</strong> {{user.username}}</p>
+  <section class="card p-4">
+    <h2>Estado de Suscripción</h2>
+    {{#if subscription}}
+      <p><strong>Estado:</strong> {{subscription.status}}</p>
+      <p><strong>Plan:</strong> {{subscription.planName}}</p>
+      <p><strong>Fin del Período:</strong> {{subscription.currentPeriodEnd}}</p>
+      {{#if subscription.isExpired}}
+        <div class="alert alert-warning mt-3" role="alert">
+          Tu suscripción ha expirado. Renueva para seguir disfrutando de los beneficios.
+        </div>
+        <button id="renewSubscription" class="btn btn-primary mt-3">Renovar Suscripción</button>
+      {{else if subscription.isCanceled}}
+        <div class="alert alert-warning mt-3" role="alert">
+          Tu suscripción está cancelada. Renueva para reactivarla.
+        </div>
+        <button id="renewSubscription" class="btn btn-primary mt-3">Renovar Suscripción</button>
+      {{else}}
+        <p class="text-success">Tu suscripción está activa.</p>
+      {{/if}}
+    {{else}}
+      <div class="alert alert-warning mt-3" role="alert">
+        No tienes una suscripción activa. ¡Suscríbete ahora!
+      </div>
+      <button id="renewSubscription" class="btn btn-primary mt-3">Suscribirse</button>
+    {{/if}}
+  </section>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.getElementById('renewSubscription')?.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const { url } = await response.json();
+      if (url) window.location.href = url;
+    } catch (error) {
+      alert('Error al iniciar el pago. Intenta de nuevo.');
+    }
+  });
+</script>

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('searchForm');
 
     if (!searchForm) {
-        console.error('Form with ID "searchForm" not found.');
+        //console.error('Form with ID "searchForm" not found.');
         return;
     }
 
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Form submission intercepted');
 
         const query = document.getElementById('queryInput').value.trim();
+        var alertDiv = document.createElement('div');
 
         if (!query) {
             alert('Please enter a query to search.');
@@ -44,8 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = ''; // Clear previous results
 
+            if (!data.isLoggedIn) {
+                alertDiv.innerHTML = `<div id="alertMessage" class="alert alert-warning mt-2" role="alert" style="block">${data.alertNotLoggedIn}.<a href="/register">Registrate</a></div>`
+                resultsDiv.appendChild(alertDiv);
+            } else if (!data.isPremium) {
+                alertDiv.innerHTML = `<div id="alertMessage" class="alert alert-warning mt-2" role="alert" style="block">${data.alertSubscriptionExpired}</div>`
+                resultsDiv.appendChild(alertDiv);
+            }  
+            
+
             if (!data.sites || data.sites.length === 0) {
-                resultsDiv.innerHTML = '<p>No results found.</p>';
+                resultsDiv.innerHTML = '<p>No se encontraron resultados.</p>';
                 return;
             }
 
@@ -58,10 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${site.products.map(product => `
                             <div class="product">
                                 <p><strong>Producto:</strong> ${product.name}</p>
-                                <p><strong>Precio:</strong> $${product.price.toFixed(2)}</p>
-                                <p><strong>Precio Lista:</strong> $${product.listPrice.toFixed(2)}</p>
+                                <p class="price"><strong>Precio:</strong> <span class="striked-off ${!product.strikeOff ? 'd-none': ''}">$${product.listPrice.toFixed(2)}</span><span class="${product.strikeOff ? 'offer-price': 'price'}">$${product.price.toFixed(2)}</span></p>
                                 <p><strong>Disponible:</strong> ${product.available ? 'Si' : 'No'}</p>
-                                <p><a href="${site.drugStoreNameUrl}${product.path}" target="_blank">Ver en el sitio</a></p>
+                                <p><a class="${!data.isPremium ? 'd-none' : ''}" href="${product.path}" target="_blank">Ver en el sitio</a></p>
                             </div>
                         `).join('')}
                     </div>
@@ -86,16 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Initialize new Slick Carousels
             jQuery('.carousel').slick({
-                infinite: true,
-                slidesToShow: 1,
+                infinite: false,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 dots: true,
                 arrows: true,
                 responsive: [
                     {
-                        breakpoint: 1024,
+                        breakpoint: 400,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: 1,
                             slidesToScroll: 1
                         }
                     },

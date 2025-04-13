@@ -1,6 +1,6 @@
 /* Estilo base para móviles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
@@ -9,18 +9,117 @@ body {
 }
 
 #app {
-    width: 100%;
-    max-width: 100%;
-    margin: 20px auto;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 15px;
     background-color: #fff;
     box-sizing: border-box;
 }
 
 header {
+    background-color: #fff;
+    padding: 15px 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre estado y enlace */
+  }
+
+  #sessionStatus {
+    color: #5f6368;
+    font-size: 14px;
+  }
+
+  .login-link {
+    color: #fff;
+    background-color: #1a73e8;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .login-link:hover {
+    background-color: #1557b0;
+  }
+
+  .container {
     text-align: center;
+  }
+
+  h1 {
+    font-size: 24px;
+    color: #202124;
     margin-bottom: 20px;
-}
+  }
+  
+  div {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5f6368;
+    font-size: 14px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+
+  button:hover {
+    background-color: #1557b0;
+  }
+  
+  #message {
+    margin-top: 15px;
+    color: #202124;
+    font-size: 14px;
+  }
+  
+  a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #5f6368;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-left: 20px;
+  }
 
 .header-logo {
     width: 100%;
@@ -29,11 +128,17 @@ header {
     display: block;
     margin: 0 auto;
 }
+
+.mt-20 {
+  margin-top: 20px;
+}
+
 /* Estilo del formulario */
 #searchForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 20px;
 }
 
 input[type="text"] {
@@ -58,6 +163,10 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+ul {
+  padding-inline-start: 0px;
 }
 
 #results {
@@ -116,11 +225,44 @@ button:hover {
     border: 0;
 }
 
+.price {
+    margin-top: 10px;
+  }
+  
+  .striked-off {
+    text-decoration: line-through;
+    color: #5f6368; /* Gris apagado */
+    margin-right: 10px;
+  }
+  
+  .offer-price {
+    color: #d93025; /* Rojo para destacar la oferta */
+    font-weight: bold;
+  }
+  
+  .premium-notice {
+    color: #d93025;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+  }
+
 /* Media Queries para pantallas más grandes */
 @media (min-width: 768px) {
     #app {
-        max-width: 720px;
-        margin: 40px auto;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -156,9 +298,6 @@ button:hover {
 }
 
 @media (min-width: 1024px) {
-    #app {
-        max-width: 800px;
-    }
 
     .header-logo {
         max-width: 450px; /* Tamaño aún mayor para pantallas grandes */
